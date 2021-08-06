@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: client-ticket-depl
+spec:
+  replicas: 1
+  selector: 
+    matchLabels: 
+      app: client-ticket
+  template:
+    metadata:
+      labels:
+        app: client-ticket
+    spec:
+      containers:
+        - name: client-ticket
+          image: 20000325/client-ticket
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: client-ticket-srv
+spec:
+  selector: 
+    app: client-ticket
+  ports: 
+    - name: client-ticket
+      protocol: TCP
+      port: 3000
+      targetPort: 3000
