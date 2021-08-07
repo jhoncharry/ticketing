@@ -2,12 +2,12 @@ import axios from "axios";
 
 export default ({ req }) => {
     console.log("xxxxxxxxxxxxxxxxxxxx33333333333333333");
-    if (typeof window !== 'undefined') {
+    if (typeof window === 'undefined') {
         console.log("xxxxxxxxxxxxxxxxxxxx44444444444444444");
         // we are on the server!
         // requests should be made to http://ingress-nginx-controller.ingress-nginx.svc.cluster.local
         return axios.create({
-            baseURL: 'http://ingress-nginx-controller.ingress-nginx.svc.cluster.local',
+            baseURL: 'https://ingress-nginx-controller.ingress-nginx.svc.cluster.local',
             headers: req.headers
         });
     } else {
