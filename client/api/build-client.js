@@ -7,7 +7,7 @@ export default ({ req }) => {
         // we are on the server!
         // requests should be made to http://ingress-nginx-controller.ingress-nginx.svc.cluster.local
         return axios.create({
-            baseURL: 'http://auth-srv:3000',
+            baseURL: 'http://ingress-nginx-controller.ingress-nginx.svc.cluster.local',
             headers: req.headers
         });
     } else {
