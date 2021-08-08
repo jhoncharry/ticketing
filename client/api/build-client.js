@@ -5,9 +5,9 @@ export default ({ req }) => {
     if (typeof window === 'undefined') {
         console.log("xxxxxxxxxxxxxxxxxxxx44444444444444444");
         // we are on the server!
-        // requests should be made to http://ingress-nginx-controller.ingress-nginx.svc.cluster.local
+        // requests should be made to http://ingress-nginx-controller.ingress-nginx.svc.cluster.local (TO DEVELOPMENT)
         return axios.create({
-            baseURL: 'http://ingress-nginx-controller.ingress-nginx.svc.cluster.local',
+            baseURL: 'http://www.ticketing-app-jhoncharry.xyz/', // (TO PRODUCTION)
             headers: req.headers
         });
     } else {
